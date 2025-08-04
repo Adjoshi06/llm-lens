@@ -70,14 +70,9 @@ logs/
 # OS
 Thumbs.db
 .DS_Store
-docker-compose.yml
-backend/app/.dockerignore
-backend/app/Dockerfile
-frontend/app/.dockerignore
-frontend/app/Dockerfile
 
-setup.ps1
-setup.sh
+
+
 examples/__init__.py
 examples/demo.py
 QUICKSTART.md
