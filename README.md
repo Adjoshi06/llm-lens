@@ -1,6 +1,6 @@
-# LLM Monitor - Monitoring & Observability Dashboard (MVP)
+# LLM-Lems
 
-A minimal viable product for monitoring LLM API calls (OpenAI, Anthropic) with a real-time web dashboard.
+A dashboard for monitoring LLM API calls.
 
 ## Features
 
