@@ -1,4 +1,4 @@
-# LLM-Lems
+# LLM-Lens
 
 A dashboard for monitoring LLM API calls.
 
