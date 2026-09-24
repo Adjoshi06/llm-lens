@@ -1,0 +1,7 @@
+# Repository policy for obvious automation
+repo:
+  defaultBranch: master
+  mergeMethod: merge   # GitHub settings allow merge/squash/rebase; plain merge chosen as default
+  requireHumanMerge: true
+setup:
+  branchPrefix: obvious/
