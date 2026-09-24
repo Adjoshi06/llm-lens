@@ -113,8 +113,12 @@ async def get_timeseries(
             value_expr = func.count(LLMEvent.id)
         
         # Build base query with date_trunc
+        # Group/order by the "bucket" output alias: grouping by the parameterized
+        # date_trunc expression directly makes PostgreSQL unable to match it with
+        # the SELECT expression (asyncpg sends both as $-params), raising GroupingError.
+        bucket = func.date_trunc(trunc_unit, LLMEvent.timestamp).label("bucket")
         query = select(
-            func.date_trunc(trunc_unit, LLMEvent.timestamp).label("bucket"),
+            bucket,
             LLMEvent.model,
             value_expr.label("value")
         ).where(
@@ -123,10 +127,10 @@ async def get_timeseries(
                 LLMEvent.timestamp <= end_time
             )
         ).group_by(
-            func.date_trunc(trunc_unit, LLMEvent.timestamp),
+            "bucket",
             LLMEvent.model
         ).order_by(
-            func.date_trunc(trunc_unit, LLMEvent.timestamp),
+            "bucket",
             LLMEvent.model
         )
         

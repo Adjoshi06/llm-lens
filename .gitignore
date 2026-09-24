@@ -76,3 +76,7 @@ Thumbs.db
 
 
 
+
+# Frontend shared lib — un-ignore (the Python "lib/" rule above swallows it)
+!frontend/lib/
+!frontend/lib/**
